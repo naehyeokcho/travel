@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>🌺 하와이 오아후 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ocean: #0077b6;
+  --ocean-deep: #023e8a;
+  --sky: #90e0ef;
+  --sand: #f4d35e;
+  --coral: #ee6c4d;
+  --palm: #2d6a4f;
+  --sunset: #f77f00;
+  --white: #fffdf7;
+  --bg: #e8f4f8;
+  --card-bg: rgba(255,253,247,0.97);
+  --text: #1a1a2e;
+  --muted: #6b7280;
+  --border: rgba(0,119,182,0.13);
+  --shadow: 0 4px 20px rgba(0,119,182,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(155deg, #023e8a 0%, #0077b6 50%, #00b4d8 85%, #90e0ef 100%);
+  padding: 40px 20px 48px;
+  position: relative; overflow: hidden; text-align: center;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 36px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 36'%3E%3Cpath d='M0,18 C150,36 350,0 600,18 C850,36 1050,0 1200,18 L1200,36 L0,36Z' fill='%23e8f4f8'/%3E%3C/svg%3E") center/cover;
+}
+.hero-emoji { font-size: 2.4rem; margin-bottom: 6px; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: 1.85rem; font-weight: 900; color: #fff; line-height: 1.2; text-shadow: 0 2px 12px rgba(0,0,0,0.2); }
+.hero-sub { margin-top: 6px; font-size: 0.82rem; color: rgba(255,255,255,0.82); font-weight: 300; letter-spacing: 0.04em; }
+.hero-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-top: 14px; }
+.hero-chip {
+  background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.28);
+  color: #fff; font-size: 0.72rem; padding: 4px 10px; border-radius: 20px; font-weight: 500;
+}
+
+/* NAV TABS */
+.nav-wrap { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 2px solid var(--border); box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+.nav-tabs { display: flex; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.nav-tabs::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex-shrink: 0; padding: 13px 16px; font-size: 0.8rem; font-weight: 700;
+  color: var(--muted); background: none; border: none; cursor: pointer;
+  border-bottom: 3px solid transparent; white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s; font-family: 'Noto Sans KR', sans-serif;
+}
+.tab-btn.active { color: var(--ocean); border-bottom-color: var(--ocean); }
+
+/* SECTIONS */
+.section { display: none; padding: 16px 14px 80px; }
+.section.active { display: block; }
+
+/* DAY FILTER */
+.day-filter { display: flex; gap: 7px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 14px; scrollbar-width: none; }
+.day-filter::-webkit-scrollbar { display: none; }
+.day-btn {
+  flex-shrink: 0; padding: 7px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+  border: 1.5px solid var(--border); background: var(--card-bg); color: var(--muted);
+  cursor: pointer; transition: all 0.18s; font-family: 'Noto Sans KR', sans-serif;
+}
+.day-btn.active { background: var(--ocean); color: #fff; border-color: var(--ocean); }
+
+/* CARD */
+.card {
+  background: var(--card-bg); border-radius: 16px; box-shadow: var(--shadow);
+  margin-bottom: 12px; overflow: hidden; border: 1px solid var(--border);
+  animation: fadeUp 0.3s ease both;
+}
+@keyframes fadeUp { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+/* DAY HEADER */
+.day-header {
+  background: linear-gradient(120deg, var(--ocean-deep), var(--ocean));
+  color: #fff; padding: 12px 16px; display: flex; align-items: center; gap: 10px;
+}
+.day-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 900; line-height: 1; }
+.day-info { flex: 1; }
+.day-date { font-size: 0.78rem; opacity: 0.85; }
+.day-theme { font-size: 0.83rem; font-weight: 700; margin-top: 1px; }
+.day-car { font-size: 1rem; }
+
+/* TIMELINE ITEM */
+.timeline { padding: 4px 0 8px; }
+.t-item { display: flex; gap: 0; position: relative; }
+.t-item:not(:last-child)::before {
+  content: ''; position: absolute; left: 36px; top: 34px; bottom: -4px; width: 1.5px;
+  background: var(--border); z-index: 0;
+}
+.t-time { width: 56px; flex-shrink: 0; padding: 12px 0 12px 14px; font-size: 0.68rem; color: var(--muted); font-weight: 500; padding-top: 14px; }
+.t-dot-wrap { width: 28px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding-top: 12px; z-index: 1; }
+.t-dot { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; flex-shrink: 0; }
+.t-body { flex: 1; padding: 10px 14px 10px 8px; }
+.t-title { font-size: 0.88rem; font-weight: 700; line-height: 1.3; }
+.t-desc { font-size: 0.75rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
+.t-cost { display: inline-block; font-size: 0.7rem; font-weight: 700; color: var(--palm); background: #d8f3dc; padding: 2px 8px; border-radius: 10px; margin-top: 5px; }
+.t-map { display: inline-flex; align-items: center; gap: 3px; font-size: 0.68rem; color: var(--ocean); font-weight: 600; text-decoration: none; padding: 3px 8px; background: #e8f4fd; border-radius: 10px; margin-top: 5px; margin-left: 4px; }
+.t-map:hover { background: var(--sky); }
+.t-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+.badge { font-size: 0.65rem; padding: 2px 7px; border-radius: 8px; font-weight: 600; }
+.badge-res { background: #fff0e8; color: var(--coral); }
+.badge-car { background: #e8f4fd; color: var(--ocean); }
+.badge-free { background: #d8f3dc; color: var(--palm); }
+.badge-must { background: #ffe8e8; color: #c1121f; }
+
+/* TYPE COLORS */
+.dot-meal { background: #fff0e8; }
+.dot-activity { background: #d8f3dc; }
+.dot-hotel { background: #e8f4fd; }
+.dot-snack { background: #fef9c3; }
+.dot-move { background: #f3e8ff; }
+.dot-shopping { background: #fce4ec; }
+
+/* RESTAURANT CARD */
+.rest-card {
+  background: var(--card-bg); border-radius: 14px; box-shadow: var(--shadow);
+  margin-bottom: 10px; padding: 14px 16px; border: 1px solid var(--border);
+  animation: fadeUp 0.25s ease both;
+}
+.rest-header { display: flex; align-items: flex-start; gap: 10px; }
+.rest-emoji { font-size: 1.6rem; flex-shrink: 0; }
+.rest-info { flex: 1; }
+.rest-name { font-size: 0.95rem; font-weight: 700; }
+.rest-rating { font-size: 0.75rem; color: var(--sunset); font-weight: 600; }
+.rest-genre { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+.rest-meta { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.rest-tag { font-size: 0.68rem; padding: 3px 9px; border-radius: 10px; font-weight: 600; }
+.rt-meal { background: #e8f4fd; color: var(--ocean); }
+.rt-time { background: #f3f4f6; color: var(--muted); }
+.rt-price { background: #d8f3dc; color: var(--palm); }
+.rest-menu { font-size: 0.75rem; color: var(--muted); margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--border); line-height: 1.6; }
+.rest-menu strong { color: var(--text); font-weight: 600; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ocean-deep); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 2px solid var(--sand); }
+
+/* SNACK CARD */
+.snack-card {
+  background: var(--card-bg); border-radius: 14px; box-shadow: var(--shadow);
+  margin-bottom: 10px; padding: 14px 16px; border: 1px solid var(--border);
+  display: flex; gap: 12px; align-items: flex-start;
+  animation: fadeUp 0.25s ease both;
+}
+.snack-date-col { flex-shrink: 0; text-align: center; }
+.snack-date { font-size: 0.7rem; color: var(--muted); font-weight: 500; }
+.snack-day { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 900; color: var(--ocean); line-height: 1; }
+.snack-body { flex: 1; }
+.snack-name { font-size: 0.9rem; font-weight: 700; }
+.snack-hours { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+.snack-items { font-size: 0.75rem; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+.snack-dist { font-size: 0.68rem; background: #e8f4fd; color: var(--ocean); padding: 2px 8px; border-radius: 8px; display: inline-block; margin-top: 5px; font-weight: 600; }
+
+/* DRIVING */
+.drive-section { margin-bottom: 18px; }
+.drive-section-title { font-size: 0.78rem; font-weight: 700; color: var(--ocean-deep); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; padding-left: 4px; border-left: 3px solid var(--sand); padding-left: 8px; }
+.drive-card {
+  background: var(--card-bg); border-radius: 12px; padding: 12px 14px;
+  margin-bottom: 8px; border: 1px solid var(--border); box-shadow: var(--shadow);
+  animation: fadeUp 0.22s ease both;
+}
+.drive-row { display: flex; gap: 10px; align-items: flex-start; }
+.drive-label { font-size: 0.75rem; font-weight: 700; color: var(--ocean); width: 88px; flex-shrink: 0; padding-top: 1px; }
+.drive-val { font-size: 0.8rem; color: var(--text); line-height: 1.55; flex: 1; }
+.drive-warn { font-size: 0.72rem; color: var(--coral); font-weight: 600; margin-top: 3px; }
+
+/* SOUVENIR */
+.sov-card {
+  background: var(--card-bg); border-radius: 14px; box-shadow: var(--shadow);
+  margin-bottom: 10px; padding: 14px 16px; border: 1px solid var(--border);
+  animation: fadeUp 0.25s ease both;
+}
+.sov-header { display: flex; justify-content: space-between; align-items: center; }
+.sov-name { font-size: 0.9rem; font-weight: 700; }
+.sov-price { font-size: 0.78rem; font-weight: 700; color: var(--palm); background: #d8f3dc; padding: 2px 9px; border-radius: 10px; }
+.sov-detail { font-size: 0.75rem; color: var(--muted); margin-top: 5px; line-height: 1.5; }
+.sov-where { font-size: 0.68rem; color: var(--ocean); background: #e8f4fd; padding: 2px 8px; border-radius: 8px; display: inline-block; margin-top: 5px; font-weight: 600; }
+
+.store-card {
+  background: var(--card-bg); border-radius: 14px; box-shadow: var(--shadow);
+  margin-bottom: 10px; padding: 14px 16px; border: 1px solid var(--border);
+  animation: fadeUp 0.25s ease both;
+}
+.store-header { display: flex; gap: 10px; align-items: center; }
+.store-icon { font-size: 1.5rem; }
+.store-name { font-size: 0.95rem; font-weight: 700; }
+.store-addr { font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
+.store-hours { font-size: 0.72rem; color: var(--palm); font-weight: 600; }
+.store-items { font-size: 0.75rem; color: var(--muted); margin-top: 8px; line-height: 1.6; border-top: 1px solid var(--border); padding-top: 8px; }
+.store-tip { font-size: 0.72rem; color: var(--sunset); font-weight: 600; margin-top: 4px; }
+
+/* BOTTOM NAV */
+.bottom-safe { height: 20px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-emoji">🌺</div>
+  <div class="hero-title">한이네 가족 🌺<br>하와이 오아후 2026</div>
+  <div class="hero-sub">5월 23일(토) — 5월 31일(일) · 7박 8일 · 3인 가족</div>
+  <div class="hero-chips">
+    <span class="hero-chip">🏨 라마다 플라자 와이키키</span>
+    <span class="hero-chip">🚗 렌터카 5/23~5/29</span>
+    <span class="hero-chip">🤿 스노쿨링 장비 직참</span>
+    <span class="hero-chip">✈️ OZ232 / OZ231</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="showTab('schedule')">📅 전체일정</button>
+    <button class="tab-btn" onclick="showTab('restaurant')">🍽 식당가이드</button>
+    <button class="tab-btn" onclick="showTab('snack')">🛒 간식스팟</button>
+    <button class="tab-btn" onclick="showTab('driving')">🚗 운전가이드</button>
+    <button class="tab-btn" onclick="showTab('souvenir')">🎁 기념품&마트</button>
+  </div>
+</div>
+
+<!-- ========== 전체일정 ========== -->
+<div id="tab-schedule" class="section active">
+  <div class="day-filter" id="dayFilter">
+    <button class="day-btn active" onclick="filterDay('all',this)">전체</button>
+    <button class="day-btn" onclick="filterDay('d1',this)">1일 5/23</button>
+    <button class="day-btn" onclick="filterDay('d2',this)">2일 5/24</button>
+    <button class="day-btn" onclick="filterDay('d3',this)">3일 5/25</button>
+    <button class="day-btn" onclick="filterDay('d4',this)">4일 5/26</button>
+    <button class="day-btn" onclick="filterDay('d5',this)">5일 5/27</button>
+    <button class="day-btn" onclick="filterDay('d6',this)">6일 5/28</button>
+    <button class="day-btn" onclick="filterDay('d7',this)">7일 5/29</button>
+    <button class="day-btn" onclick="filterDay('d8',this)">8일 5/30</button>
+  </div>
+
+  <!-- 1일차 -->
+  <div class="card day-card" data-day="d1">
+    <div class="day-header">
+      <div class="day-num">01</div>
+      <div class="day-info">
+        <div class="day-date">5월 23일 (토)</div>
+        <div class="day-theme">🚗 렌터카 1일차 — 도착 & 와이키키 적응</div>
+      </div>
+      <div class="day-car">🚗</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">09:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-move">✈️</div></div>
+        <div class="t-body">
+          <div class="t-title">호놀룰루 공항 도착</div>
+          <div class="t-desc">입국심사 · 수하물 수취</div>
+          <div class="t-badges"><span class="badge badge-car">🚗 공항에서 렌터카 수령</span></div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">10:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-hotel">🏨</div></div>
+        <div class="t-body">
+          <div class="t-title">라마다 플라자 와이키키 — 짐맡기기</div>
+          <div class="t-desc">얼리체크인 or 짐보관 요청</div>
+          <div class="t-cost">발렛 $30/일</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">12:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🦅 Duke's Waikiki ⭐4.4 — 점심</div>
+          <div class="t-desc">비치프론트 하와이안 퀴진 · 단 1회 방문!</div>
+          <div class="t-cost">3인 $90~110</div>
+          <div class="t-badges">
+            <span class="badge badge-free">🏖 해변 바로 앞</span>
+            <a class="t-map" href="https://maps.google.com/?cid=18446429482955885041" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">14:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🏖</div></div>
+        <div class="t-body">
+          <div class="t-title">와이키키 메인 해변</div>
+          <div class="t-desc">첫날 해변 적응 · 아이 모래놀이</div>
+          <div class="t-cost">무료</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">17:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-hotel">🏨</div></div>
+        <div class="t-body">
+          <div class="t-title">호텔 체크인 & 짐 정리</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">19:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🐟 Tiki's Grill & Bar ⭐4.6 — 저녁</div>
+          <div class="t-desc">오션뷰 루프탑 석양 저녁 · 단 1회 방문!</div>
+          <div class="t-cost">3인 $100~120</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://maps.google.com/?cid=1405417295753333402" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">20:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-snack">🛒</div></div>
+        <div class="t-body">
+          <div class="t-title">ABC Store — 간식</div>
+          <div class="t-desc">과일컵 · 스팸무수비 · 아이스크림</div>
+          <div class="t-cost">$15~20</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2일차 -->
+  <div class="card day-card" data-day="d2">
+    <div class="day-header">
+      <div class="day-num">02</div>
+      <div class="day-info">
+        <div class="day-date">5월 24일 (일)</div>
+        <div class="day-theme">🚗 동쪽해안 — 하나우마 베이 + 식물원</div>
+      </div>
+      <div class="day-car">🚗</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">06:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">☀️ Brunch Spot Waikiki ⭐4.8 — 조식</div>
+          <div class="t-desc">와이키키 No.1 한식 브런치</div>
+          <div class="t-cost">3인 $50~60</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://maps.google.com/?cid=5370736753582796537" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">07:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🤿</div></div>
+        <div class="t-body">
+          <div class="t-title">하나우마 베이 ⭐4.7 — 스노쿨링</div>
+          <div class="t-desc">세계적 산호초 보호구역 · 초보·아이 최적 · 장비 직접 지참!</div>
+          <div class="t-cost">3인 $78 (입장 $25/인 + 주차 $3)</div>
+          <div class="t-badges">
+            <span class="badge badge-must">⚠️ 2일 전 필수예약</span>
+            <span class="badge badge-car">07:30 이전 도착!</span>
+            <a class="t-map" href="https://maps.google.com/?cid=16316599299253017594" target="_blank">📍 지도</a>
+          </div>
+          <div class="t-desc" style="margin-top:5px;color:#c1121f;font-weight:600;">예약: hanaumabaystatepark.com (2일 전 하와이 시간 오전 7시 오픈)</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">11:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">Bay Rock Cafe — 점심</div>
+          <div class="t-desc">하나우마 베이 내 스낵바 · 카드결제만 가능 ⚠️ 14:00 영업종료</div>
+          <div class="t-cost">3인 $30~40</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">13:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🌿</div></div>
+        <div class="t-body">
+          <div class="t-title">호오말루히아 식물원 — 산책</div>
+          <div class="t-desc">열대 식물원 드라이브 · 하나우마 베이에서 약 25분</div>
+          <div class="t-cost">무료 (주차 무료)</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">17:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🍖 Buzz's Original Steakhouse ⭐4.3 — 저녁</div>
+          <div class="t-desc">1962년 카일루아 터줏대감 스테이크① · 카일루아 비치 맞은편</div>
+          <div class="t-cost">3인 $110~140</div>
+          <div class="t-badges">
+            <span class="badge badge-res">📞 예약 권장</span>
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Buzz%27s+Original+Steakhouse+413+Kawailoa+Rd+Kailua+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">19:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-snack">🛒</div></div>
+        <div class="t-body">
+          <div class="t-title">Food Pantry — 간식 & 내일 아침 구매</div>
+          <div class="t-desc">로티세리 치킨 · 신선과일 · 내일(5/25) 아침용 미리 구매!</div>
+          <div class="t-cost">$20~30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3일차 -->
+  <div class="card day-card" data-day="d3">
+    <div class="day-header">
+      <div class="day-num">03</div>
+      <div class="day-info">
+        <div class="day-date">5월 25일 (월)</div>
+        <div class="day-theme">🎬 쿠알로아 랜치 + 라니카이 스노쿨링</div>
+      </div>
+      <div class="day-car">🚗</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">06:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">전날 구입 간편식 — 조식</div>
+          <div class="t-desc">호텔에서 간단히 해결 후 즉시 출발 → 06:30 출발 목표</div>
+          <div class="t-cost">$0</div>
+          <div class="t-badges"><span class="badge badge-must">⚠️ 06:30 호텔 출발 필수!</span></div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">08:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🎬</div></div>
+        <div class="t-body">
+          <div class="t-title">🎬 쿠알로아 랜치 ⭐4.7 — 쥬라기 어드밴처 투어</div>
+          <div class="t-desc">Jurassic Park·World 촬영지 탐험! 오픈에어 차량 2.5시간 투어<br>⚠️ 체크인 45분 전 필수 (지각 시 환불 불가)</div>
+          <div class="t-cost">성인 2($299.90) + 아이 1($78) = $377.90</div>
+          <div class="t-badges">
+            <span class="badge badge-must">⚠️ 1~2개월 전 필수예약</span>
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Kualoa+Ranch+49-560+Kamehameha+Hwy+Kaneohe+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">11:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">Aunty Pat's Cafe — 점심</div>
+          <div class="t-desc">쿠알로아 랜치 내 카페 · 뷔페 런치</div>
+          <div class="t-cost">패키지 포함 or 뷔페 $20~25/인</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">14:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🤿</div></div>
+        <div class="t-body">
+          <div class="t-title">라니카이 비치 — 스노쿨링</div>
+          <div class="t-desc">투명도 최고! 쿠알로아에서 약 20분 · 장비 직접 지참</div>
+          <div class="t-cost">무료</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://maps.google.com/?cid=17028359545784033969" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">18:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🥩 Aloha Steak House ⭐4.6 — 저녁</div>
+          <div class="t-desc">Hale Aina Award 수상 · 스테이크② · 단 1회 방문!</div>
+          <div class="t-cost">3인 $180~220</div>
+          <div class="t-badges">
+            <span class="badge badge-res">📞 예약 권장</span>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">20:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-snack">🛒</div></div>
+        <div class="t-body">
+          <div class="t-title">Waikiki Market — 간식</div>
+          <div class="t-desc">치킨 · 신선과일 · 신선 디저트 · 스시</div>
+          <div class="t-cost">$20~30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4일차 -->
+  <div class="card day-card" data-day="d4">
+    <div class="day-header">
+      <div class="day-num">04</div>
+      <div class="day-info">
+        <div class="day-date">5월 26일 (화)</div>
+        <div class="day-theme">🏔 다이아몬드헤드 + 알라모아나 쇼핑</div>
+      </div>
+      <div class="day-car">🚗</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">08:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🌿 Heavenly Island Lifestyle ⭐4.5 — 조식</div>
+          <div class="t-desc">건강 오가닉 조식 · 아이 친화적</div>
+          <div class="t-cost">3인 $50~60</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Heavenly+Island+Lifestyle+Waikiki+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">10:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🏔</div></div>
+        <div class="t-body">
+          <div class="t-title">다이아몬드 헤드 ⭐4.7 — 트레킹</div>
+          <div class="t-desc">화산 분화구 트레킹 · 왕복 3.2km · 초등1학년도 OK!</div>
+          <div class="t-cost">3인 $25 (입장 $5/인 + 주차 $10)</div>
+          <div class="t-badges">
+            <span class="badge badge-must">⚠️ 토·일 휴무! 온라인예약</span>
+            <a class="t-map" href="https://maps.google.com/?cid=4800286696185848402" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">12:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🐟 Ono Seafood ⭐4.5 — 점심</div>
+          <div class="t-desc">포케 원조 맛집 · 단 1회 방문!</div>
+          <div class="t-cost">3인 $50</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Ono+Seafood+747+Kapahulu+Ave+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">14:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-shopping">🛍</div></div>
+        <div class="t-body">
+          <div class="t-title">알라 모아나 센터 — 쇼핑</div>
+          <div class="t-desc">하와이 최대 쇼핑몰 · 기념품·의류·잡화</div>
+          <div class="t-cost">예산대로</div>
+          <div class="t-badges"><span class="badge badge-free">🅿 무료주차</span></div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">19:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🇹🇭 Noi Thai Cuisine ⭐4.5 — 저녁</div>
+          <div class="t-desc">와이키키 No.1 태국 · Royal Hawaiian Center 3F · 단 1회 방문!</div>
+          <div class="t-cost">3인 $90~120</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Noi+Thai+Cuisine+Royal+Hawaiian+Center+Waikiki+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">20:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-snack">🛒</div></div>
+        <div class="t-body">
+          <div class="t-title">돈키호테 — 간식 & 기념품</div>
+          <div class="t-desc">마카다미아 · 과일 · 스팸 · 과자 ★ 가장 저렴!</div>
+          <div class="t-cost">$20~40</div>
+          <div class="t-badges"><span class="badge badge-free">🅿 2시간 무료</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5일차 -->
+  <div class="card day-card" data-day="d5">
+    <div class="day-header">
+      <div class="day-num">05</div>
+      <div class="day-info">
+        <div class="day-date">5월 27일 (수)</div>
+        <div class="day-theme">🌊 서쪽해안 — 코올리나 라군</div>
+      </div>
+      <div class="day-car">🚗</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">07:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">☕ Morning Glass Coffee ⭐4.7 — 조식</div>
+          <div class="t-desc">힙한 로컬 카페 · 에그·커피·베이커리</div>
+          <div class="t-cost">3인 $40</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Morning+Glass+Coffee+2955+E+Manoa+Rd+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">09:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🌊</div></div>
+        <div class="t-body">
+          <div class="t-title">코올리나 라군 ⭐4.6 — 스노쿨링</div>
+          <div class="t-desc">인공 라군 · 파도 없어 아이 최적 · 장비 직참!</div>
+          <div class="t-cost">주차 $22 (입장 무료)</div>
+          <div class="t-badges">
+            <span class="badge badge-must">⚠️ 조기 도착 권장 (만차 주의)</span>
+            <a class="t-map" href="https://maps.google.com/?cid=4007897293327185818" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">12:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">코올리나 리조트 레스토랑 — 점심</div>
+          <div class="t-desc">리조트 내 편의 식사</div>
+          <div class="t-cost">3인 $50~60</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">17:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-move">🏘</div></div>
+        <div class="t-body">
+          <div class="t-title">와이키키 복귀</div>
+          <div class="t-desc">코올리나→와이키키 약 45분</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">19:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🥩 Ruth's Chris Steak House ⭐4.7 — 저녁</div>
+          <div class="t-desc">USDA Prime 미국 최고 스테이크③ · 얼리버드 4~6pm 강추!</div>
+          <div class="t-cost">3인 $180~220</div>
+          <div class="t-badges">
+            <span class="badge badge-res">📞 예약 필수</span>
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Ruth%27s+Chris+Steak+House+226+Lewers+St+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">20:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-snack">🛒</div></div>
+        <div class="t-body">
+          <div class="t-title">Waikiki Market — 간식</div>
+          <div class="t-desc">케이크 · 마카롱 · 디저트 위주</div>
+          <div class="t-cost">$15~25</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6일차 -->
+  <div class="card day-card" data-day="d6">
+    <div class="day-header">
+      <div class="day-num">06</div>
+      <div class="day-info">
+        <div class="day-date">5월 28일 (목)</div>
+        <div class="day-theme">🐢 터틀캐년 보트 스노쿨링</div>
+      </div>
+      <div class="day-car">🚗</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">07:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🌋 Basalt Waikiki ⭐4.5 — 조식</div>
+          <div class="t-desc">인스타 유명 화산 팬케이크! 검은색 숯 팬케이크+구아바소스</div>
+          <div class="t-cost">3인 $55~70</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Basalt+Waikiki+2330+Kalakaua+Ave+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">09:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🐢</div></div>
+        <div class="t-body">
+          <div class="t-title">터틀캐년 보트 스노쿨링 — Living Ocean Tours</div>
+          <div class="t-desc">거북이 만날 확률 95~100%! 가이드+장비 포함 보트투어</div>
+          <div class="t-cost">3인 $165~225</div>
+          <div class="t-badges">
+            <span class="badge badge-res">📞 사전예약 권장</span>
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Kewalo+Basin+Harbor+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">12:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🌿 Goofy Cafe & Dine ⭐4.5 — 점심</div>
+          <div class="t-desc">힐튼 앞 로컬 건강 카페 · 단 1회 방문!</div>
+          <div class="t-cost">3인 $50~60</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Goofy+Cafe+and+Dine+1831+Ala+Moana+Blvd+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">14:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-shopping">🛍</div></div>
+        <div class="t-body">
+          <div class="t-title">인터내셔널 마켓플레이스 — 쇼핑</div>
+          <div class="t-desc">기념품·쇼핑 · 미츠와 마켓(일본 슈퍼) 포함</div>
+          <div class="t-cost">예산대로</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">16:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🏖</div></div>
+        <div class="t-body">
+          <div class="t-title">와이키키 메인 해변 — 자유수영</div>
+          <div class="t-desc">장비 지참 시 스노쿨링도 OK</div>
+          <div class="t-cost">무료</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">19:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🐟 Hula Grill Waikiki ⭐4.5 — 저녁</div>
+          <div class="t-desc">오션뷰 해산물 전문점 · 다이아몬드헤드 뷰 · 단 1회 방문!</div>
+          <div class="t-cost">3인 $110~130</div>
+          <div class="t-badges">
+            <span class="badge badge-res">📞 예약 권장</span>
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Hula+Grill+Waikiki+2335+Kalakaua+Ave+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7일차 -->
+  <div class="card day-card" data-day="d7">
+    <div class="day-header">
+      <div class="day-num">07</div>
+      <div class="day-info">
+        <div class="day-date">5월 29일 (금)</div>
+        <div class="day-theme">🌅 자유일 — 마지막 해변 & 렌터카 반납</div>
+      </div>
+      <div class="day-car">🚗</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">07:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🌺 Island Vintage Coffee ⭐4.5 — 조식</div>
+          <div class="t-desc">아사이볼로 유명한 카페 · Royal Hawaiian Center 2F</div>
+          <div class="t-cost">3인 $50</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Island+Vintage+Coffee+Royal+Hawaiian+Center+Waikiki+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">09:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🏖</div></div>
+        <div class="t-body">
+          <div class="t-title">와이키키 메인 해변 — 마지막 해변</div>
+          <div class="t-desc">모래성 · 물놀이 · 기념사진</div>
+          <div class="t-cost">무료</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">11:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-snack">🍧</div></div>
+        <div class="t-body">
+          <div class="t-title">셰이브 아이스 — 마지막 하와이 빙수!</div>
+          <div class="t-desc">Island Snow or ABC Store 셰이브아이스</div>
+          <div class="t-cost">3인 $20~25</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">13:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">Duke's Lane Market & Eatery ⭐4.4 — 점심</div>
+          <div class="t-desc">포케·스시·신선 도시락 · 가볍게 마지막 점심</div>
+          <div class="t-cost">3인 $40~50</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Duke%27s+Lane+Market+and+Eatery+2255+Kuhio+Ave+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">15:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-shopping">🛍</div></div>
+        <div class="t-body">
+          <div class="t-title">Target + 돈키호테 — 마지막 쇼핑</div>
+          <div class="t-desc">못 산 것 최종 마무리</div>
+          <div class="t-badges"><span class="badge badge-free">🅿 Target 2시간 무료</span></div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">17:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-activity">🌅</div></div>
+        <div class="t-body">
+          <div class="t-title">와이키키 메인 해변 — 석양 🌅</div>
+          <div class="t-desc">석양 보며 마지막 해변 가족 기념사진 필수!</div>
+          <div class="t-cost">무료</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">19:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-meal">🍽</div></div>
+        <div class="t-body">
+          <div class="t-title">🌺 Shorefyre International Marketplace ⭐4.5 — 저녁</div>
+          <div class="t-desc">현대 하와이안 퀴진 + 라이브뮤직 · 특별한 마지막 밤!</div>
+          <div class="t-cost">3인 $80~110</div>
+          <div class="t-badges">
+            <a class="t-map" href="https://www.google.com/maps/search/?api=1&query=Shorefyre+International+Market+Place+Waikiki+Honolulu+HI" target="_blank">📍 지도</a>
+          </div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">21:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-move">🚗</div></div>
+        <div class="t-body">
+          <div class="t-title">렌터카 반납</div>
+          <div class="t-desc">5/23공항~5/29밤 총 7일 사용 완료 · 와이키키 렌터카 센터</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8일차 -->
+  <div class="card day-card" data-day="d8">
+    <div class="day-header">
+      <div class="day-num">08</div>
+      <div class="day-info">
+        <div class="day-date">5월 30일 (토)</div>
+        <div class="day-theme">✈️ 귀국일 — OZ231 11:10 출발</div>
+      </div>
+      <div class="day-car">❌</div>
+    </div>
+    <div class="timeline">
+      <div class="t-item">
+        <div class="t-time">06:30</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-hotel">🌅</div></div>
+        <div class="t-body">
+          <div class="t-title">기상 & 최종 짐 정리</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">08:00</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-hotel">🏨</div></div>
+        <div class="t-body">
+          <div class="t-title">라마다 플라자 와이키키 — 체크아웃</div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">08:10</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-move">🚌</div></div>
+        <div class="t-body">
+          <div class="t-title">공항 출발 (택시 or 버스)</div>
+          <div class="t-desc">08:40 공항 도착 목표</div>
+          <div class="t-cost">택시 $40 or 버스 $3</div>
+          <div class="t-badges"><span class="badge badge-must">⚠️ 08:40 공항 도착 필수!</span></div>
+        </div>
+      </div>
+      <div class="t-item">
+        <div class="t-time">11:10</div>
+        <div class="t-dot-wrap"><div class="t-dot dot-move">✈️</div></div>
+        <div class="t-body">
+          <div class="t-title">OZ231 인천행 출발</div>
+          <div class="t-desc">호놀룰루 국제공항 → 인천 T2 도착 17:30 (5/31)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 식당가이드 ========== -->
+<div id="tab-restaurant" class="section">
+  <div class="section-title">🍳 조식 5곳</div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">☀️</div>
+      <div class="rest-info">
+        <div class="rest-name">Brunch Spot Waikiki</div>
+        <div class="rest-rating">⭐ 4.8 · 1,668리뷰</div>
+        <div class="rest-genre">한국식 브런치</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/24 조식</span>
+      <span class="rest-tag rt-time">07:00~15:00</span>
+      <span class="rest-tag rt-price">$~$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Omurice $18 / Loco Moco $16 / Island Breakfast $14 → 3인 $50~60</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🌿</div>
+      <div class="rest-info">
+        <div class="rest-name">Heavenly Island Lifestyle</div>
+        <div class="rest-rating">⭐ 4.5</div>
+        <div class="rest-genre">건강 오가닉</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/26 조식</span>
+      <span class="rest-tag rt-time">07:00~15:00</span>
+      <span class="rest-tag rt-price">$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Açaí Bowl $16 / Avocado Toast $15 → 3인 $50~60</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">☕</div>
+      <div class="rest-info">
+        <div class="rest-name">Morning Glass Coffee</div>
+        <div class="rest-rating">⭐ 4.7</div>
+        <div class="rest-genre">로컬 카페 베이커리</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/27 조식</span>
+      <span class="rest-tag rt-time">07:00~15:00</span>
+      <span class="rest-tag rt-price">$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Egg Sandwich $12 / Latte $6 / Croissant $5 → 3인 $40</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🌋</div>
+      <div class="rest-info">
+        <div class="rest-name">Basalt Waikiki</div>
+        <div class="rest-rating">⭐ 4.5</div>
+        <div class="rest-genre">화산 팬케이크 특별</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/28 조식</span>
+      <span class="rest-tag rt-time">07:00~13:30</span>
+      <span class="rest-tag rt-price">$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Black Charcoal Pancake $18 / Eggs Benedict $19 → 3인 $55~70</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🌺</div>
+      <div class="rest-info">
+        <div class="rest-name">Island Vintage Coffee</div>
+        <div class="rest-rating">⭐ 4.5</div>
+        <div class="rest-genre">아사이볼 카페</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/29 조식</span>
+      <span class="rest-tag rt-time">07:00~21:00</span>
+      <span class="rest-tag rt-price">$~$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Açaí Bowl $17 / Cold Brew $6 → 3인 $50</div>
+  </div>
+
+  <div class="section-title" style="margin-top:20px;">🌞 점심 6곳</div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🦅</div>
+      <div class="rest-info">
+        <div class="rest-name">Duke's Waikiki</div>
+        <div class="rest-rating">⭐ 4.4 · 18,573리뷰</div>
+        <div class="rest-genre">비치프론트 하와이안</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/23 점심</span>
+      <span class="rest-tag rt-time">07:00~자정</span>
+      <span class="rest-tag rt-price">$$~$$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Huli Huli Chicken $32 / Ahi Tuna $38 / Coconut Shrimp $18 → 3인 $90~110</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🥗</div>
+      <div class="rest-info">
+        <div class="rest-name">Kalapawai Market</div>
+        <div class="rest-rating">⭐ 4.4</div>
+        <div class="rest-genre">카일루아 현지 로컬</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/24 점심</span>
+      <span class="rest-tag rt-time">07:00~21:00</span>
+      <span class="rest-tag rt-price">$~$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> 포케보울 / 샌드위치</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🏕</div>
+      <div class="rest-info">
+        <div class="rest-name">Aunty Pat's Cafe (쿠알로아)</div>
+        <div class="rest-rating">쿠알로아 랜치 내</div>
+        <div class="rest-genre">랜치 뷔페</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/25 점심</span>
+      <span class="rest-tag rt-time">10:00~16:00</span>
+      <span class="rest-tag rt-price">$~$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> 뷔페 런치 $20~25/인</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🐟</div>
+      <div class="rest-info">
+        <div class="rest-name">Ono Seafood</div>
+        <div class="rest-rating">⭐ 4.5 · 2,500리뷰</div>
+        <div class="rest-genre">포케 원조</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/26 점심</span>
+      <span class="rest-tag rt-time">10:00~18:00</span>
+      <span class="rest-tag rt-price">$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Ahi Tuna Poke Bowl $15~18 → 3인 $50</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🌿</div>
+      <div class="rest-info">
+        <div class="rest-name">Goofy Cafe & Dine</div>
+        <div class="rest-rating">⭐ 4.5</div>
+        <div class="rest-genre">건강 로컬 카페</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/28 점심</span>
+      <span class="rest-tag rt-time">07:00~21:00</span>
+      <span class="rest-tag rt-price">$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Veggie Bowl $16 / Grilled Fish $18 → 3인 $50~60</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🛒</div>
+      <div class="rest-info">
+        <div class="rest-name">Duke's Lane Market & Eatery</div>
+        <div class="rest-rating">⭐ 4.4</div>
+        <div class="rest-genre">마켓형 간편식</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/29 점심</span>
+      <span class="rest-tag rt-time">06:30~23:00</span>
+      <span class="rest-tag rt-price">$~$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> 포케 $12~16 / 스시 $10~15 → 3인 $40~50</div>
+  </div>
+
+  <div class="section-title" style="margin-top:20px;">🌙 저녁 7곳</div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🐟</div>
+      <div class="rest-info">
+        <div class="rest-name">Tiki's Grill & Bar</div>
+        <div class="rest-rating">⭐ 4.6 · 11,226리뷰</div>
+        <div class="rest-genre">오션뷰 바&그릴</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/23 저녁</span>
+      <span class="rest-tag rt-time">11:00~자정</span>
+      <span class="rest-tag rt-price">$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Fresh Fish of the Day $38 / Poke Nachos $19 / Mai Tai $15 → 3인 $100~120</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🍖</div>
+      <div class="rest-info">
+        <div class="rest-name">Buzz's Original Steakhouse</div>
+        <div class="rest-rating">⭐ 4.3</div>
+        <div class="rest-genre">스테이크① — 1962년 카일루아</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/24 저녁</span>
+      <span class="rest-tag rt-time">11:00~21:00</span>
+      <span class="rest-tag rt-price">$$~$$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Prime Rib $48 / Calamari Steak $28 / Mai Tai $14 → 3인 $110~140</div>
+    <div class="rest-meta" style="margin-top:6px;"><span class="rest-tag" style="background:#ffe8e8;color:#c1121f;">📞 예약 권장</span></div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🥩</div>
+      <div class="rest-info">
+        <div class="rest-name">Aloha Steak House</div>
+        <div class="rest-rating">⭐ 4.6</div>
+        <div class="rest-genre">스테이크② — Hale Aina 수상</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/25 저녁</span>
+      <span class="rest-tag rt-time">17:00~22:00</span>
+      <span class="rest-tag rt-price">$$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Tomahawk $120 / Ribeye $65~ → 3인 $180~220</div>
+    <div class="rest-meta" style="margin-top:6px;"><span class="rest-tag" style="background:#ffe8e8;color:#c1121f;">📞 예약 권장</span></div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🇹🇭</div>
+      <div class="rest-info">
+        <div class="rest-name">Noi Thai Cuisine</div>
+        <div class="rest-rating">⭐ 4.5 · 1,766리뷰</div>
+        <div class="rest-genre">태국 파인다이닝</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/26 저녁</span>
+      <span class="rest-tag rt-time">11:00~21:30</span>
+      <span class="rest-tag rt-price">$$~$$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Yellow Curry / Pad Thai $22 / Tom Kha Soup $16 → 3인 $90~120</div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🥩</div>
+      <div class="rest-info">
+        <div class="rest-name">Ruth's Chris Steak House</div>
+        <div class="rest-rating">⭐ 4.7 · 5,568리뷰</div>
+        <div class="rest-genre">스테이크③ — USDA Prime</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/27 저녁</span>
+      <span class="rest-tag rt-time">16:00~22:00</span>
+      <span class="rest-tag rt-price">$$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Filet Mignon $60~ / Ribeye $65~ → 3인 $180~220<br>💡 얼리버드 4~6pm 강력 추천!</div>
+    <div class="rest-meta" style="margin-top:6px;"><span class="rest-tag" style="background:#ffe8e8;color:#c1121f;">📞 예약 필수</span></div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🐟</div>
+      <div class="rest-info">
+        <div class="rest-name">Hula Grill Waikiki</div>
+        <div class="rest-rating">⭐ 4.5</div>
+        <div class="rest-genre">해산물 오션뷰 전문</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/28 저녁</span>
+      <span class="rest-tag rt-time">11:00~22:00</span>
+      <span class="rest-tag rt-price">$$~$$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Crab-topped Mahi Mahi $42 / Grilled Ahi $38 → 3인 $110~130</div>
+    <div class="rest-meta" style="margin-top:6px;"><span class="rest-tag" style="background:#ffe8e8;color:#c1121f;">📞 예약 권장</span></div>
+  </div>
+
+  <div class="rest-card">
+    <div class="rest-header">
+      <div class="rest-emoji">🌺</div>
+      <div class="rest-info">
+        <div class="rest-name">Shorefyre Int'l Marketplace</div>
+        <div class="rest-rating">⭐ 4.5</div>
+        <div class="rest-genre">현대 하와이안 + 라이브뮤직</div>
+      </div>
+    </div>
+    <div class="rest-meta">
+      <span class="rest-tag rt-meal">5/29 저녁</span>
+      <span class="rest-tag rt-time">11:00~22:00</span>
+      <span class="rest-tag rt-price">$$</span>
+    </div>
+    <div class="rest-menu"><strong>추천:</strong> Ahi Benedict $26 / Fish Tacos $22 / Island Cocktail $14 → 3인 $80~110</div>
+  </div>
+</div>
+
+<!-- ========== 간식스팟 ========== -->
+<div id="tab-snack" class="section">
+  <div class="card" style="padding:14px 16px;margin-bottom:14px;background:linear-gradient(120deg,#fef9c3,#fde68a);border:1px solid #f4d35e;">
+    <div style="font-size:0.82rem;font-weight:700;color:#92400e;">💡 꿀팁</div>
+    <div style="font-size:0.75rem;color:#78350f;margin-top:4px;line-height:1.6;">
+      ABC Store(24H·어디서나) / Waikiki Market(신선·고품질) / Food Pantry(가성비 치킨) / 돈키호테(최저가 기념품) / 7-Eleven(야식)
+    </div>
+  </div>
+
+  <div class="snack-card">
+    <div class="snack-date-col"><div class="snack-date">5/23 토</div><div class="snack-day">1</div></div>
+    <div class="snack-body">
+      <div class="snack-name">ABC Store (와이키키 내 수십 곳)</div>
+      <div class="snack-hours">🕐 24시간</div>
+      <div class="snack-items">과일컵 $3~5 / 스팸무수비 $2~3 / 아이스크림·하와이안 쿠키·음료</div>
+      <span class="snack-dist">🏖 도보 3분 이내</span>
+    </div>
+  </div>
+
+  <div class="snack-card">
+    <div class="snack-date-col"><div class="snack-date">5/24 일</div><div class="snack-day">2</div></div>
+    <div class="snack-body">
+      <div class="snack-name">Food Pantry (Eaton Square)</div>
+      <div class="snack-hours">🕐 일~목 6am~9pm / 금~토 ~10pm</div>
+      <div class="snack-items">★ 로티세리 치킨 $7~9 / 신선과일·빵·베이커리·주류<br><strong style="color:#c1121f;">내일(5/25) 아침용 식품 미리 구매!</strong></div>
+      <span class="snack-dist">🏖 도보 약 15분</span>
+    </div>
+  </div>
+
+  <div class="snack-card">
+    <div class="snack-date-col"><div class="snack-date">5/25 월</div><div class="snack-day">3</div></div>
+    <div class="snack-body">
+      <div class="snack-name">Waikiki Market</div>
+      <div class="snack-hours">🕐 6am~10pm (매일)</div>
+      <div class="snack-items">치킨 $9 / 신선과일 $4~6 / 스시 플래터·디저트·주류</div>
+      <span class="snack-dist">🏖 도보 약 5분</span>
+    </div>
+  </div>
+
+  <div class="snack-card">
+    <div class="snack-date-col"><div class="snack-date">5/26 화</div><div class="snack-day">4</div></div>
+    <div class="snack-body">
+      <div class="snack-name">돈키호테 (Don Quijote)</div>
+      <div class="snack-hours">🕐 6am~자정 (매일)</div>
+      <div class="snack-items">마카다미아·과자·스낵 최저가! 빵·과일·스팸·음료·기념품</div>
+      <span class="snack-dist">🚗 렌터카 5분 / 도보 25분</span>
+    </div>
+  </div>
+
+  <div class="snack-card">
+    <div class="snack-date-col"><div class="snack-date">5/27 수</div><div class="snack-day">5</div></div>
+    <div class="snack-body">
+      <div class="snack-name">Waikiki Market (2차)</div>
+      <div class="snack-hours">🕐 6am~10pm (매일)</div>
+      <div class="snack-items">케이크·마카롱·디저트 위주 / 하와이안 스낵·와인·맥주</div>
+      <span class="snack-dist">🏖 도보 약 5분</span>
+    </div>
+  </div>
+
+  <div class="snack-card">
+    <div class="snack-date-col"><div class="snack-date">5/28 목</div><div class="snack-day">6</div></div>
+    <div class="snack-body">
+      <div class="snack-name">ABC Store or 7-Eleven</div>
+      <div class="snack-hours">🕐 24시간</div>
+      <div class="snack-items">야식 간식 / 아이스크림·음료·하와이안 스낵</div>
+      <span class="snack-dist">🏖 도보 3분 이내</span>
+    </div>
+  </div>
+
+  <div class="snack-card">
+    <div class="snack-date-col"><div class="snack-date">5/29 금</div><div class="snack-day">7</div></div>
+    <div class="snack-body">
+      <div class="snack-name">ABC Store or Waikiki Market</div>
+      <div class="snack-hours">🕐 각 24시간/6am~10pm</div>
+      <div class="snack-items">귀국 전 마지막 + <strong style="color:#c1121f;">기내 간식용</strong> 과일·빵·스낵</div>
+      <span class="snack-dist">🏖 도보 3~5분</span>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 운전가이드 ========== -->
+<div id="tab-driving" class="section">
+
+  <div class="drive-section">
+    <div class="drive-section-title">📋 기본 주행 규칙</div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">운전 방향</div><div class="drive-val">한국과 동일! 좌측 핸들 + 우측 통행 😊</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">속도 단위</div><div class="drive-val">mph 사용 · 시내 25~35mph(40~56km/h) · 고속 55~65mph</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">우회전</div><div class="drive-val">빨간 신호에서도 일시 정지 후 우회전 가능<br><span class="drive-warn">단, 'No Turn on Red' 표지 있으면 금지</span></div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">STOP 표지</div><div class="drive-val">완전 정지 2~3초 필수 <span class="drive-warn">경찰 단속 최다 항목!</span></div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">핸드폰</div><div class="drive-val">운전 중 절대 금지! 거치대 내비 사용 필수<br><span class="drive-warn">위반 시 벌금 $100 이상</span></div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">카시트</div><div class="drive-val">8세 아이 = 부스터 시트 필수! 렌터카 예약 시 요청</div></div>
+    </div>
+  </div>
+
+  <div class="drive-section">
+    <div class="drive-section-title">⛽ 주유 방법</div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">주유소 추천</div><div class="drive-val">Costco Gas(최저가) / 76 / Shell / Aloha Petroleum<br>GasBuddy 앱으로 최저가 실시간 확인</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">① 결제</div><div class="drive-val">카드 단말기 직접 꽂기 → Zip Code 입력<br><span class="drive-warn">한국 카드는 Zip Code 없어 거부될 수 있음! → 카운터에서 현금/카드 결제</span></div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">② 유종</div><div class="drive-val">Regular (87) 선택 · 렌터카 계약서 확인 필수</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">③ 주유구</div><div class="drive-val">운전석 왼쪽 아래 레버 당기기 (렌터카마다 다를 수 있음)</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">비용 참고</div><div class="drive-val">1갤런 ≈ $4~5 · 6일 총 유류비 약 $90~120 예상</div></div>
+    </div>
+  </div>
+
+  <div class="drive-section">
+    <div class="drive-section-title">🅿 주차 가이드</div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">표지판 읽기</div><div class="drive-val">녹색 = 무료/시간제한 / 빨간색 = 절대 금지(즉시 견인!)<br>'No Parking 8am-6pm' = 해당 시간대만 금지</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">유료 주차장</div><div class="drive-val">SpotHero / ParkWhiz 앱 사전 예약 시 저렴<br>Waikiki Trade Center: $3~5/hr · Royal Hawaiian: $3~5/hr</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">무료 주차 팁</div><div class="drive-val">쿠알로아 랜치 ✅ / 알라모아나 센터 ✅ / 하나우마 베이 $3<br>Target 2시간 무료 / 돈키호테 2시간 무료</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">발렛</div><div class="drive-val">호텔·레스토랑 발렛 팁 $5~10 · 호텔 발렛 $30/일</div></div>
+    </div>
+  </div>
+
+  <div class="drive-section">
+    <div class="drive-section-title">📱 필수 앱 (출발 전 설치!)</div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">내비</div><div class="drive-val">Google Maps ★ 한국어 지원 · 오프라인 지도 미리 다운로드 필수!</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">주유소</div><div class="drive-val">GasBuddy — 근처 최저가 주유소 실시간 검색</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">주차</div><div class="drive-val">ParkMobile / PayByPhone (미터기) / SpotHero (사전예약)</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">음주 후</div><div class="drive-val">Uber / Lyft — 하와이에서 완벽 작동. 저녁 음주 시 반드시 앱 호출!</div></div>
+    </div>
+  </div>
+
+  <div class="drive-section">
+    <div class="drive-section-title">⚠️ 긴급 상황 대처</div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">사고 시</div><div class="drive-val">① 안전한 곳 이동 → ② 911 신고 → ③ 렌터카 긴급전화 → ④ 보험증서 제시</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">렌터카 긴급</div><div class="drive-val">Alamo: 1-800-462-5266<br>Hertz: 1-800-654-5060</div></div>
+    </div>
+    <div class="drive-card">
+      <div class="drive-row"><div class="drive-label">911</div><div class="drive-val">"Please help, I had a car accident." 로 신고 가능</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 기념품&마트 ========== -->
+<div id="tab-souvenir" class="section">
+
+  <div class="section-title">🏪 마트별 특징</div>
+
+  <div class="store-card">
+    <div class="store-header">
+      <div class="store-icon">⭐</div>
+      <div>
+        <div class="store-name">돈키호테 — 추천 1순위!</div>
+        <div class="store-addr">801 Kaheka St (와이키키에서 차로 5분)</div>
+        <div class="store-hours">🕐 6am~자정 · 주차 2시간 무료</div>
+      </div>
+    </div>
+    <div class="store-items">마카다미아 초콜릿 · 코나커피 · 스팸 하와이 에디션 · 과자·스낵 · 알로하 셔츠 · 과일·빵·음료 · 일본 식품</div>
+    <div class="store-tip">★ 최저가 보장! 기념품+생필품 한번에!</div>
+  </div>
+
+  <div class="store-card">
+    <div class="store-header">
+      <div class="store-icon">🛒</div>
+      <div>
+        <div class="store-name">Waikiki Market</div>
+        <div class="store-addr">2255 Kuhio Ave (와이키키 중심)</div>
+        <div class="store-hours">🕐 6am~10pm · 해변 도보 5분</div>
+      </div>
+    </div>
+    <div class="store-items">신선 과일·채소 / 포케·스시 / 로티세리 치킨 / 베이커리 / 하와이 특산 주류</div>
+    <div class="store-tip">와이키키 신선도 최고!</div>
+  </div>
+
+  <div class="store-card">
+    <div class="store-header">
+      <div class="store-icon">🍗</div>
+      <div>
+        <div class="store-name">Food Pantry (Eaton Square)</div>
+        <div class="store-addr">438 Hobron Ln (와이키키 서쪽)</div>
+        <div class="store-hours">🕐 일~목 6am~9pm / 금~토 ~10pm</div>
+      </div>
+    </div>
+    <div class="store-items">로티세리 치킨 $7~9 ★ 신선 과일·채소 / 빵 / 샐러드·샌드위치</div>
+    <div class="store-tip">가성비 최고! 저녁 간식용으로 완벽</div>
+  </div>
+
+  <div class="store-card">
+    <div class="store-header">
+      <div class="store-icon">🎯</div>
+      <div>
+        <div class="store-name">Target (Waikiki)</div>
+        <div class="store-addr">2250 Kalakaua Ave · 주차 2시간 무료</div>
+        <div class="store-hours">🕐 8am~22pm</div>
+      </div>
+    </div>
+    <div class="store-items">마카다미아 대용량 / 미국 과자·시리얼 / 하와이 기념 T셔츠 / 선크림·물놀이 용품</div>
+    <div class="store-tip">와이키키 중심 접근성 최고</div>
+  </div>
+
+  <div class="store-card">
+    <div class="store-header">
+      <div class="store-icon">🏪</div>
+      <div>
+        <div class="store-name">ABC Store</div>
+        <div class="store-addr">와이키키 내 수십 개 지점</div>
+        <div class="store-hours">🕐 24시간</div>
+      </div>
+    </div>
+    <div class="store-items">스팸무수비 $2~3 / 과일컵 $3~5 / 아이스크림 / 마카다미아 소포장 / 기념 마그넷</div>
+    <div class="store-tip">24시간 응급 쇼핑 최적 (가격은 다소 높음)</div>
+  </div>
+
+  <div class="section-title" style="margin-top:20px;">🎁 인기 기념품 TOP 15</div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🍫 마카다미아 초콜릿</div><div class="sov-price">$8~20</div></div>
+    <div class="sov-detail">Mauna Loa / Hawaiian Host / Maui Caramel — 대용량은 돈키호테가 저렴</div>
+    <span class="sov-where">돈키호테 · Target</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">☕ 코나 커피</div><div class="sov-price">$12~30</div></div>
+    <div class="sov-detail">100% Kona Coffee 원두·드립백·인스턴트 — 하와이 특산품 No.1 선물용 최고!</div>
+    <span class="sov-where">돈키호테 · Food Pantry</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🥫 스팸 하와이 에디션</div><div class="sov-price">$4~6/캔</div></div>
+    <div class="sov-detail">Teriyaki / Macadamia / Less Sodium — 한국에 없는 하와이 한정 맛! 멀티팩 대량 구매 추천</div>
+    <span class="sov-where">돈키호테 · Target</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🍪 로열 하와이안 쿠키</div><div class="sov-price">$12~25</div></div>
+    <div class="sov-detail">Royal Hawaiian Macadamia Shortbread — 하트 모양 버터쿠키. 예쁜 틴 케이스 선물용!</div>
+    <span class="sov-where">돈키호테 · ABC Store</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🍍 호놀룰루 쿠키</div><div class="sov-price">$15~35</div></div>
+    <div class="sov-detail">Honolulu Cookie Company — 파인애플 모양 버터쿠키. 포장도 예뻐서 선물용으로 최고</div>
+    <span class="sov-where">본점 · 알라모아나</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🌋 하와이 소금</div><div class="sov-price">$8~15</div></div>
+    <div class="sov-detail">Hawaiian Black Salt / Hawaiian Red Salt — 화산 소금. 독특한 기념품 & 요리용</div>
+    <span class="sov-where">돈키호테 · Waikiki Market</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">👕 알로하 셔츠</div><div class="sov-price">$15~50</div></div>
+    <div class="sov-detail">아이 사이즈도 있음! 8살 아들용 귀여운 알로하 — 가족 매칭도 추천</div>
+    <span class="sov-where">돈키호테 · Target · 알라모아나</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🧁 코나 솔트 카라멜</div><div class="sov-price">$10~18</div></div>
+    <div class="sov-detail">코나커피+솔트 카라멜 조합 — 현지인 추천!</div>
+    <span class="sov-where">돈키호테 · Target</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🏖 하와이 해변 타월</div><div class="sov-price">$15~30</div></div>
+    <div class="sov-detail">다양한 패턴 — 실용적 기념품. 아이와 함께 고르면 재미있음</div>
+    <span class="sov-where">Target · 알라모아나</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🍯 100% Hawaiian Honey</div><div class="sov-price">$12~25</div></div>
+    <div class="sov-detail">Big Island Bees — 하와이 꽃 꿀. 독특한 맛 & 건강 선물로 최고</div>
+    <span class="sov-where">Waikiki Market</span>
+  </div>
+
+  <div class="sov-card">
+    <div class="sov-header"><div class="sov-name">🧲 마그넷·키링</div><div class="sov-price">$3~8</div></div>
+    <div class="sov-detail">하와이 로고 다양 — 친구·직장 선물용 기본 아이템</div>
+    <span class="sov-where">ABC Store (가장 다양)</span>
+  </div>
+
+  <div class="bottom-safe"></div>
+</div>
+
+<script>
+function showTab(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function filterDay(day, btn) {
+  document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.day-card').forEach(card => {
+    if (day === 'all') {
+      card.style.display = '';
+    } else {
+      card.style.display = card.dataset.day === day ? '' : 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
